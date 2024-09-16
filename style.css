@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+section {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #1d1d1d;
+  border-radius: 10px;
+  margin-top: 10%;
+  height: 30vh;
+}
+.zona-izquierda {
+  width: 50%;
+  font-size: 1.5rem;
+}
+.zona-derecha {
+  width: 40%;
+}
+.zona-derecha ul {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 30% 20%;
+}
+.zona-derecha {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.menu {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.tooltip {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  visibility: hidden;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: rgb(0, 0, 0) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s;
+  visibility: hidden;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 750px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .zona-derecha {
+    width: 95%;
+    text-align: center;
+  }
+  .zona-izquierda {
+    text-align: center;
+    width: 98%;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 570px) {
+  section {
+    width: 95%;
+    margin: 10% auto;
+  }
+}
+@media screen and (max-width: 430px) {
+  section {
+    width: 99%;
+    margin: 10% auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .tooltip::before {
+    font-size: 0.7rem;
+  }
+  .zona-izquierda {
+    font-size: 1rem;
+    width: 80%;
+  }
+}
